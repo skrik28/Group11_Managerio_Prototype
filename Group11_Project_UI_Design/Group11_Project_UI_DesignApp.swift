@@ -131,6 +131,7 @@ struct DashboardView: View {
                 // Calendar
                 CalendarView(selectedDate: $selectedDate)
                     .frame(height: 300)
+                    .padding(.top)
                 
                 // Projects for selected date
                 Text("Projects on \(formattedDate(selectedDate))")
