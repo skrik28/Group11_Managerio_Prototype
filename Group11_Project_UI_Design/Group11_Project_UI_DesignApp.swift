@@ -111,6 +111,7 @@ struct DashboardView: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .padding(.top)
+                    .contentMargins(20, for: .automatic)
                 
                 // Stats cards
                 HStack(spacing: 20) {
@@ -121,17 +122,13 @@ struct DashboardView: View {
                 HStack(spacing: 20) {
                     StatCard(title: "In Progress", value: "\(projectStore.totalProjects - projectStore.completedProjects)", icon: "clock", color: .orange)
                     StatCard(title: "Total Budget", value: "$\(Int(projectStore.totalBudget))", icon: "dollarsign.circle", color: .purple)
-                }
-                
-                Text("Calendar")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .padding(.top)
+                }.padding(.bottom)
                 
                 // Calendar
                 CalendarView(selectedDate: $selectedDate)
                     .frame(height: 300)
                     .padding(.top)
+                    .padding(.bottom)
                 
                 // Projects for selected date
                 Text("Projects on \(formattedDate(selectedDate))")
