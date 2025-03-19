@@ -68,7 +68,7 @@ struct HomeView: View {
             Spacer()
             
             Text("Managerio")
-                .font(.system(size: 48, weight: .bold))
+                .font(.custom("Noteworthy-Bold", size: 37))
                 .foregroundColor(.blue)
             
             Text("Project Management System\nFor iPhone 16 Pro")
@@ -108,11 +108,10 @@ struct DashboardView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 Text("Dashboard")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.top)
-                    .contentMargins(20, for: .automatic)
-                
+                    .font(.custom("Noteworthy-Bold", size: 45))
+                    .padding(.top, -20)
+                    .padding(.leading, 15)
+
                 // Stats cards
                 HStack(spacing: 20) {
                     StatCard(title: "Total Projects", value: "\(projectStore.totalProjects)", icon: "folder", color: .blue)
@@ -148,6 +147,7 @@ struct DashboardView: View {
             }
             .padding()
         }
+        .padding(.top, 10)
     }
     
     func formattedDate(_ date: Date) -> String {
@@ -377,9 +377,10 @@ struct CreateProjectView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 Text("Create New Project")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .padding(.top)
+                    .font(.custom("Noteworthy-Bold", size: 37))
+                    .padding(.top, -20)
+                    .padding(.leading, 15)
+                    .padding(.bottom, 5)
                 
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Project Title")
@@ -455,6 +456,7 @@ struct CreateProjectView: View {
             }
             .padding()
         }
+        .padding(.top, 10)
     }
     
     func createProject() {
@@ -503,9 +505,9 @@ struct ProjectListView: View {
     var body: some View {
         VStack {
             Text("Project List")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding(.top)
+                .font(.custom("Noteworthy-Bold", size: 37))
+                .padding(.top, -5)
+                .padding(.bottom, 20)
             
             SearchBar(text: $searchText)
                 .padding(.horizontal)
